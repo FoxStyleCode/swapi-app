@@ -1,0 +1,52 @@
+<div class="container mt-4 pb-4">
+ 
+   <div class="row">
+ 
+     <!-- column -->
+     <div class="col-sm-12 col-md-12 col-lg-12">
+       <!-- input search -->
+       <div class="container">
+         <div class="row d-flex justify-content-center align-items-center">
+           <div class="col-md-6 pt-2">
+             <div class="form">
+               <i class="fa fa-search"></i>
+               <input type="text" class="form-control form-input" [(ngModel)]="searchText" placeholder="Search anything...">
+               <span class="left-pan"><i class="fa-brands fa-galactic-senate font-icon"></i></span>
+             </div>
+           </div>
+           <div class="col-md-2 pt-2">
+            <select class="form-select form-input" [(ngModel)]="gender" aria-label="Default select example">
+              <option selected value="">Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="n/a">N/A</option>
+            </select>
+           </div>
+           <div class="col-md-4 pt-2">
+            <select class="form-select form-input" [(ngModel)]="filmSearch" aria-label="Default select example">
+              <option selected value="">Films</option>
+              <option value="{{ item.url }}" *ngFor="let item of films | async">{{ item.title }}</option>
+            </select>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- fin column -->
+ 
+     <div class="row row-cols-md-3 row-cols-lg-4 row-cols-sm-1 mt-2 ms-1">
+
+      <app-card-character [character]="character" *ngFor="let character of characters | paginate: {  itemsPerPage: 10, currentPage: p } | filterPipe: searchText | genderPipe: gender | characterByFilmAsyncPipe: filmSearch " ></app-card-character>
+     
+     </div>
+ 
+     <div class="d-flex flex-row-reverse mt-2">
+       <div class="p-2">
+ 
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+ 
+       </div>
+     </div>
+ 
+   </div>
+ </div>
+ 

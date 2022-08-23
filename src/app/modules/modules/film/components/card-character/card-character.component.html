@@ -1,0 +1,37 @@
+<!-- cards -->
+<div class="col mt-4">
+
+    <div class="card special-card">
+      
+      <div class="card-header d-flex justify-content-center">
+        <div class="p-2">
+          <img src="assets/images/grievous.jpg" class="card-img-top rounded-circle img-character" alt="...">
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <h4 class="card-title">{{ character.name  }}</h4>
+        <h6> Hair color : <strong> {{ character.hair_color }} </strong> </h6>
+        <h6> Eye color : <strong> {{ character.eye_color }} </strong> </h6>
+        <div class="d-flex">
+          <div>
+            <small> Gender : {{ character.gender }} </small>
+          </div>
+          <div class="ms-2">
+            <small> Height : {{ character.height }} </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+      
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let film of character.films" > {{ film | FilmsPipePipe | async }} </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+<!-- fin cards -->

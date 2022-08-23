@@ -1,0 +1,14 @@
+<div class="ms-2" *ngIf="film">
+  <div class="card" style="width: 18rem; cursor: pointer;">
+      <img src="https://i.pinimg.com/originals/0b/7b/28/0b7b28512aaaf775f70c5a494f3878a3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"> {{ film.title }}</h5>
+        <h6 class="card-title"> Director: {{ film.director }} <small> </small> </h6>
+        <!-- <p class="card-text">{{ film.opening_crawl }}</p> -->
+        <div class="info">
+          <p> Date: {{ film.release_date | date }} </p>    
+        </div>
+        <a href="#" class="btn btn-success" [routerLink]="['/film-characters/'+film.title]">Go characters</a>
+      </div>
+  </div>
+</div>

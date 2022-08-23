@@ -1,0 +1,16 @@
+.rounded-circle{
+    border:1px solid;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+}
+
+.img-character{
+    width: 150px;
+    height: 150px;
+}
+
+.special-card {
+      background-color: rgba(245, 245, 245, 1);
+      opacity: .8;
+}
